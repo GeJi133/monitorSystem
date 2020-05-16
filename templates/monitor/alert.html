@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Poliset - Responsive Bootstrap 4 Admin Dashboard</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<!-- google font -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+		<link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="../static/css/ionicons.css" rel="stylesheet" type="text/css">
+		<link href="../static/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+		<link href="../static/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+		<link href="../static/css/weather-icons.min.css" rel="stylesheet">
+		<!--Morris Chart -->
+        <link href="../static/css/fullcalendar.css" rel='stylesheet' />
+		<link rel="stylesheet" href="../static/js/index/morris-chart/morris.css">
+		<link href="../static/css/style.css" rel="stylesheet">
+		<link href="../static/css/responsive.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="wrapper">
+            {% include 'common/top.html' %}
+			<!-- Content_right -->
+			<main class="content_wrapper">
+					<!--page title start-->
+
+					<div class="page-heading">
+						<div class="container-fluid">
+							<div class="row d-flex align-items-center">
+								<div class="col-md-12">
+									<div class="page-breadcrumb">
+										<h1>警报信息</h1>
+									</div>
+								</div>
+								<div class="col-md-6 justify-content-md-end d-md-flex">
+									<div class="breadcrumb_nav">
+										<ol class="breadcrumb">
+											<li>
+												<i class="fa fa-home"></i>
+												<a class="parent-item" href="index.html">Home</a>
+												<i class="fa fa-angle-right"></i>
+											</li>
+											<li class="active">
+												Alert Infomation
+											</li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--page title end-->
+					<div class="container-fluid">
+						<!-- state start-->
+						<div class="row">
+							<div class=" col-md-10">
+                                   {% for alert in model.alerts %}
+								<div class="list_space card card-shadow">
+										<div class="card-header">
+											<div class="card-title">
+												{{ alert.time }}报警信息
+											</div>
+										</div>
+										<div class="col-md-12">
+                                        <table class="listTable">
+
+                                                <tr class="table-tr-item">
+                                                        <td class="col-md-12">alertType:</td>
+                                                        <td class="col-md-12">{{ alert.id}}</td>
+                                                </tr>
+                                                <tr class="table-tr-item">
+                                                        <td class="col-md-12">alertTime:</td>
+                                                        <td class="col-md-12">{{ alert.time}}</td>
+                                                </tr>
+                                                <tr class="table-tr-item">
+                                                        <td class="col-md-12">alert Message:</td>
+                                                        <td class="col-md-12">{{ alert.message}}</td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+
+
+										</div>
+                                    {%  endfor %}
+									</div>
+							</div>
+						</div>
+						<!-- state end-->
+
+				</main>
+			<!-- Content_right_End -->
+			<!-- Footer -->
+            {% include 'common/bottom.html' %}
+		</div>
+		<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../static/js/popper.min.js"></script>
+		<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<!--vectormap-->
+		<script src="../static/js/index/jquery-jvectormap-1.2.2.min.js"></script>
+		<script src="../static/js/index/jquery-jvectormap-world-mill-en.js"></script>
+		<script src="../static/js/index/vmap-init.js"></script>
+
+         <script src="../static/js/moment.min.js"></script>
+		<script src="../static/js/fullcalendar.js"></script>
+        <script src="../static/js/calendar-external-events-init.js"></script>
+
+		<!--echarts-->
+		<script type="text/javascript" src="../static/js/index/echarts-all-3.js"></script>
+		<!--init echarts-->
+		<script type="text/javascript" src="../static/js/index/init-echarts.js"></script>
+
+		<!-- chart js -->
+		<script src="../static/js/index/Chart.bundle.js"></script>
+		<script src="../static/js/index/utils.js"></script>
+
+		<script src="../static/js/index/chart.js"></script>
+
+		<script type="text/javascript" src="../static/js/jquery.dcjqaccordion.2.7.js"></script>
+		<script src="../static/js/custom.js" type="text/javascript"></script>
+
+	</body>
+
+</html>

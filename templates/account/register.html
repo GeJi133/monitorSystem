@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../../static/css/register.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form class="container" action="{{ url_for('user.register')}}" method="post">
+    <div class="login-wrapper">
+        <div class="header">注册界面</div>
+        <div class="form-wrapper">
+            <input type="text" name="username" placeholder="用户名" class="form-control">
+            <input type="password" name="password" placeholder="密码" class="form-control">
+            <input type="password" name="repeatpassword" placeholder="确认密码" class="form-control">
+            <input type="text" name="dorid" placeholder="寝室号" class="form-control">
+            <input type="text" name="Phone" placeholder="电话号码" class="form-control">
+            <input type="submit" value="注册" class="btn">
+        </div>
+        <div class="msg">
+       <a href="{{url_for('user.login_form')}}">返回登录页</a>
+      </div>
+    </div>
+</form>
+
+
+</body>
+</html>

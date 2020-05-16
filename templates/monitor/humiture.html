@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+  <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+  <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
+  <script>
+       var temperature
+       var humidity
+
+      $.ajax({
+        //请求方式
+        type:'get',
+        //发送请求的地址
+        url:"{{ url_for('monitor.getHumiture')}}",
+        //服务器返回的数据类型
+        dataType:'json',
+        //发送到服务器的数据，对象必须为key/value的格式，jquery会自动转换为字符串格式
+        {#data:requestHumiture,#}
+        success:function(data){
+            console.log(data)
+            temperature = data['temperature']
+            humidity = data['humidity']
+            console.log('请求的数据1234')
+            console.log(temperature[1])
+            console.log(humidity)
+            $(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Monthly Average Temperature'
+        },
+        subtitle: {
+            text: 'Source: WorldClimate.com'
+        },
+        xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title: {
+                text: 'Temperature (°C)'
+            }
+        },
+        tooltip: {
+            enabled: false,
+            formatter: function() {
+                return '<b>'+ this.series.name +'</b>'+this.x +': '+ this.y +'°C';
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{
+            name: 'temperature',
+            data: temperature,
+            formatter: function() {
+                console.log("swdwdwd:")
+                console.log(this.series.data)
+                console.log("ddwdwedw")
+                console.log(temperature)
+                {#return '<b>'+ this.series.name +'</b>'+this.x +': '+ this.y +'°C';#}
+            }
+        }, {
+            name: 'humidity',
+            data: humidity
+        }]
+    });
+});
+            //请求成功函数内容
+        },
+        error:function(jqXHR){
+            //请求失败函数内容
+            document.write("qingqiushibai ");
+        }
+    });
+
+  </script>
+</head>
+<body>
+温湿度
+  <div id="container" style="min-width:700px;height:400px"></div>
+
+</body>
+</html>
