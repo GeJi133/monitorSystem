@@ -3,7 +3,7 @@ from controller.registerUrl import monitor
 from sever.individuation import getWater, getFeet
 from sever.monitorSever import getWaterLogsByUsername,getFeetLogsByUsername,turnOnWater,turnOffWater
 from sever.userSever import getUserByUsername
-from sever.alertServer import getAlert
+from sever.alertServer import getAlert, getAlertById
 from util.monitorHumiture import humidity,temperature
 
 @monitor.route('/main',methods = ['get'])
@@ -17,7 +17,11 @@ def viewHumiture():
 
 @monitor.route('/RealTimeMonitor')
 def viewRealTime():
-    return render_template('monitor/portlet-base.html')
+    return render_template('monitor/viewRealTimeVideo.html')
+@monitor.route('/AlertVideo')
+
+def viewAlertVideo():
+    return render_template('monitor/viewRealTimeVideo.html')
 
 @monitor.route('/humiture',methods = ['get'])
 def getHumiture():
@@ -82,4 +86,29 @@ def getAlertInfo():
     print('alertLogs', alerts)
     model = {'alerts': alerts}
     return render_template('monitor/alert.html', model=model)
+
+@monitor.route('/getVideoByuser',methods=['get'])
+def getVideo():
+    user = session.get('user')
+    username = user.get('username')
+    alerts = getAlert(username)
+    video=alerts[0]
+    print(type(video))
+    path=video.videoPath
+    model={'path':path,'alerts':alerts}
+    return render_template('monitor/viewVideos.html', model=model)
+
+
+
+@monitor.route('/viewAlertVideoById/<id>',methods=['get'])
+def viewAlertVideoById(id):
+    user = session.get('user')
+    username = user.get('username')
+    video = getAlertById(id)
+    print('alertid11111111111111111111111111111111',video.videoPath)
+    alerts = getAlert(username)
+    print(type(video))
+    path=video.videoPath
+    model = {'path': path, 'alerts': alerts}
+    return render_template('monitor/viewVideos.html', model=model)
 

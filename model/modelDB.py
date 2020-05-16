@@ -151,14 +151,16 @@ class Alert(db.Model):
     time = db.Column(db.DateTime(6))
     message = db.Column(db.String(40))
     username = db.Column(db.String(40))
+    videoPath= db.Column(db.String(40))
 
     __tablename__ = 'alert'
 
-    def __init__(self, type=None, username=None,time=None, message=None):
+    def __init__(self, type=None, username=None,time=None, message=None,videoPath=None):
         self.type=type
         self.message=message
         self.time = time
         self.username=username
+        self.videoPath=videoPath
 
 
     def __repr__(self):

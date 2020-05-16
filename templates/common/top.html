@@ -194,10 +194,10 @@
 							<a href="#"> <i class="fa fa-pie-chart"></i> <span>摄像头控制</span> <span class="arrow"></span> </a>
 							<ul class="down_menu">
 								<li>
-                                    <a href="{{ url_for('monitor.viewRealTime')}}">监控录像查看</a>
+                                    <a href="{{ url_for('monitor.viewRealTime')}}">实时监控录像查看</a>
 								</li>
 								<li>
-									<a href="portlet-advanced.html">参数设置</a>
+									<a href="{{ url_for('monitor.getVideo')}}">查看监控记录</a>
 								</li>
 							</ul>
 						</li>
