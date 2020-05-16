@@ -3,6 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Poliset - Responsive Bootstrap 4 Admin Dashboard</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<!-- google font -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+		<link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="../static/css/ionicons.css" rel="stylesheet" type="text/css">
+		<link href="../static/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+		<link href="../static/css/jquery.mCustomScrollbar.css" rel="stylesheet">
+		<link href="../static/css/weather-icons.min.css" rel="stylesheet">
+		<!--Morris Chart -->
+        <link href="../static/css/fullcalendar.css" rel='stylesheet' />
+		<link rel="stylesheet" href="../static/js/index/morris-chart/morris.css">
+		<link href="../static/css/style.css" rel="stylesheet">
+		<link href="../static/css/responsive.css" rel="stylesheet">
+    <script>
+        function changeColor(color){
+            class_name="main-header bg_"+color;
+            document.getElementById("main-header").className = class_name;
+        }
+    </script>
 </head>
 <body>
     <header class="main-header">
@@ -157,19 +181,19 @@
 								</li>
 
 								<li>
-									<a href="index-green.html">导航栏（绿色）</a>
+									<a href="#" onclick="changeColor(green)">导航栏（绿色）</a>
 								</li>
                                 <li>
-									<a href="index-light.html">导航栏（红色）</a>
+									<a href="#" onclick="changeColor(red)">导航栏（红色）</a>
 								</li>
 								<li>
-									<a href="index-orange.html">导航栏（橙色）</a>
+									<a href="#" onclick="changeColor(orange)">导航栏（橙色）</a>
 								</li>
 								<li>
-									<a href="index-purple.html">导航栏（紫色）</a>
+									<a href="#" onclick="changeColor(purple)">导航栏（紫色）</a>
 								</li>
 								<li>
-									<a href="index-red.html">导航栏（红色）</a>
+									<a href="#" onclick="changeColor(red)">导航栏（红色）</a>
 								</li>
 
 								</ul>
